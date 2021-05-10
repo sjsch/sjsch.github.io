@@ -3,15 +3,20 @@ title: Sam Schweigel's website
 desc: Sam Schweigel's personal website
 ---
 
-<article>
-    <h1>About</h1>
+<section class="contact">
+    <h2>Contact</h2>
     
-    Hi!  Welcome to my website.  I'm a computer engineering student at <a
-    href="https://ubc.ca">UBC</a> with an interest in compilers and
-    programming languages.  My GitHub handle is <a
-    href="https://github.com/sjsch">sjsch</a>, and you can reach me at
-    <a id="email" href="">enable@javascript.com</a>.
-    
+    <table>
+        <tr>
+            <th>mail</th>
+            <td><a id="email" href="">enable@javascript.com</a></td>
+        </tr>
+        <tr>
+            <th>github</th>
+            <td><a href="https://github.com/sjsch">sjsch</a></td>
+        </tr>
+    </table>
+
     <script>
      const el = document.getElementById("email");
      const x = [115,97,109,64,115,99,104,119,101,105,103,101,108,46,99,97];
@@ -20,6 +25,14 @@ desc: Sam Schweigel's personal website
      el.innerHTML = m;
      el.href = c([109,97,105,108,116,111,58]) + m;
     </script>
+</section>
+
+<article>
+    <h1>About</h1>
+    
+    Hi!  Welcome to my website.  I'm a computer engineering student at <a
+    href="https://ubc.ca">UBC</a> with an interest in compilers and
+    programming languages.
     
     <h1>Posts</h1>
     

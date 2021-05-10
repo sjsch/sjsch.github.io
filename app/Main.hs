@@ -39,6 +39,11 @@ main = hakyll do
     route (setExtension "css")
     compile (fmap compressCss <$> sassCompiler)
 
+  match "images/favicon.ico" $ do
+    route (constRoute "favicon.ico")
+    compile copyFileCompiler
+
+
 writerOpts :: WriterOptions
 writerOpts =
   defaultHakyllWriterOptions

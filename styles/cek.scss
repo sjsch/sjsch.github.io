@@ -1,3 +1,5 @@
+@import "colours";
+
 .cek-machine {
     .inputbar {
         display: flex;
@@ -31,11 +33,11 @@
 
     g.ccont > rect {
         stroke-width: 3px;
-        stroke: blue;
+        stroke: $c-light;
     }
 
     g.cont > rect {
-        stroke: blue;
+        stroke: $c-light;
     }
 
     .node rect {

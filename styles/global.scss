@@ -1,9 +1,5 @@
-$c-hl: #7F8DB5;
-$c-dl: #8C7AC6;
-$c-light: #9B339B;
-$c-dark: #3E2464;
-$c-darker: #1e1132;
- 
+@import "colours";
+
 body {
     margin: 0;
     font-family: 'Noto Sans', sans-serif;
@@ -29,6 +25,15 @@ main {
     grid-template-columns: 20em 60em 20em;
     grid-template-rows: auto 1fr;
     justify-content: center;
+}
+
+section.contact {
+    margin: 1em;
+    grid-column: 1;
+
+    th {
+        text-align: right;
+    }
 }
 
 article {
@@ -88,10 +93,8 @@ header {
 }
 
 .toc {
-    border: 1px solid $c-dark;
     border-radius: 3px;
-    margin: 2em 1em 1em 1em;
-    padding: 1em;
+    margin: 2.5em 1em 1em 1em;
     position: sticky;
     top: 1em;
 
@@ -160,3 +163,5 @@ header {
         grid-column: 1;
     }
 }
+
+@import "code";

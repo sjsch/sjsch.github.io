@@ -7,6 +7,10 @@ desc: A visual explanation of continuations, and other control operators, includ
 
 I'll do this post for real when I get the time.
 
+```c
+int main() { return 123; }
+```
+
 For now, enjoy the fun demo:
 
 <div class="cek-machine"></div>
