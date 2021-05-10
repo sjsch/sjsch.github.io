@@ -13,6 +13,16 @@ p {
     text-align: justify;
 }
 
+input {
+    border: 1px solid lightgray;
+    border-radius: 3px;
+}
+
+button {
+    border: 1px solid lightgray;
+    border-radius: 3px;
+}
+
 main {
     display: grid;
     margin: 0 auto 0 auto;
