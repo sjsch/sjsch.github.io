@@ -1,0 +1,15 @@
+cabal-version:      2.4
+name:               sjsch-site
+version:            0.1.0.0
+author:             Sam Schweigel
+maintainer:         s.schweigel@gmail.com
+
+executable sjsch-site
+    main-is:          Main.hs
+    build-depends:    base ^>=4.14.1.0
+                    , hakyll ^>= 4.14
+                    , hakyll-sass ^>= 0.2
+                    , pandoc ^>= 2.11
+                    , text ^>= 1.2
+    hs-source-dirs:   app
+    default-language: Haskell2010

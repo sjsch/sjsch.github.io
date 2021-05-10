@@ -1,0 +1,156 @@
+$c-hl: #7F8DB5;
+$c-dl: #8C7AC6;
+$c-light: #9B339B;
+$c-dark: #3E2464;
+$c-darker: #1e1132;
+ 
+body {
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+p {
+    text-align: justify;
+}
+
+main {
+    display: grid;
+    margin: 0 auto 0 auto;
+    grid-template-columns: 20em 60em 20em;
+    grid-template-rows: auto 1fr;
+    justify-content: center;
+}
+
+article {
+    grid-column: 2;
+    grid-row: span 2;
+    margin: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+header {
+    border-bottom: 10px ridge $c-light;
+
+    a {
+        text-decoration: none;
+    }
+
+    nav {
+        display: flex;
+        float: right;
+
+        a {
+            margin: 0 0 0 1em;
+        }
+    }
+}
+
+.logo {
+    color: $c-dark;
+    font-weight: 600;
+    margin-right: auto;
+}
+
+.header-container {
+    display: flex;
+    justify-content: flex-end;
+
+    max-width: 60em - 2em;
+    margin: 0 auto 0 auto;
+    padding: 1em;
+}
+
+@media only screen and (max-width: 40em) {
+    .header-container {
+        flex-direction: column;
+
+        nav {
+            margin-top: 0.5em;
+
+            a {
+                margin: 0 1em 0 0;
+            }
+        }
+    }
+}
+
+.toc {
+    border: 1px solid $c-dark;
+    border-radius: 3px;
+    margin: 2em 1em 1em 1em;
+    padding: 1em;
+    position: sticky;
+    top: 1em;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        ul {
+            margin: 0 0 0 0.5em;
+
+            ul {
+                margin: 0 0 0 1.5em;
+            }
+
+            li {
+                border-left: 1px solid grey;
+            }
+
+            li:last-child {
+                border-left: none;
+            }
+
+            li:last-child:before {
+                border-left: 1px solid grey;
+            }
+
+            li:before {
+                position: relative;
+                display: inline-block;
+                content: "";
+
+                border-bottom: 1px solid grey;
+                margin-right: 0.3em;
+                top: -0.3em;
+                width: 0.7em;
+                height: 0.7em;
+            }
+        }
+    }
+}
+
+.post-desc {
+    font-style: italic;
+}
+
+@media only screen and (max-width: 100em) {
+    main {
+        grid-template-columns: 20em 60em auto;
+    }
+}
+
+
+@media only screen and (max-width: 80em) {
+    main {
+        grid-template-columns: auto;
+        max-width: 60em;
+    }
+
+    .toc {
+        grid-column: 1;
+        position: relative;
+    }
+
+    article {
+        grid-column: 1;
+    }
+}
