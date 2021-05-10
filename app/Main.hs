@@ -21,7 +21,6 @@ main = hakyll do
       posts <- loadAll "posts/*" >>= recentFirst
       let indexCtx =
             listField "posts" postCtx (return posts) `mappend`
-            constField "title" "Archives"            `mappend`
             defaultContext
 
       getResourceBody
