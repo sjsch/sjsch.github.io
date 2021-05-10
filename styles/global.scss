@@ -81,12 +81,8 @@ header {
     .header-container {
         flex-direction: column;
 
-        nav {
-            margin-top: 0.5em;
-
-            a {
-                margin: 0 1em 0 0;
-            }
+        nav a {
+            margin: 0.5em 1em 0 0;
         }
     }
 }
