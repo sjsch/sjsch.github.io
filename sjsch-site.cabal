@@ -7,9 +7,9 @@ maintainer:         s.schweigel@gmail.com
 executable sjsch-site
     main-is:          Main.hs
     build-depends:    base ^>=4.14.1.0
-                    , hakyll ^>= 4.14
+                    , hakyll >= 4.13 && < 4.15
                     , hakyll-sass ^>= 0.2
-                    , pandoc ^>= 2.11
+                    , pandoc >= 2.10 && < 2.12
                     , text ^>= 1.2
     hs-source-dirs:   app
     default-language: Haskell2010

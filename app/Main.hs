@@ -6,43 +6,44 @@ module Main where
 import Data.Functor.Identity (runIdentity)
 import Data.Text (Text)
 import qualified Data.Text as T
+import GHC.IO.Encoding
 import Hakyll
 import Hakyll.Web.Sass
 import Text.Pandoc.Options
 import qualified Text.Pandoc.Templates as PT
 
 main :: IO ()
-main = hakyll do
-  match "templates/*" (compile templateBodyCompiler)
+main =
+  setLocaleEncoding utf8 >> hakyll do
+    match "templates/*" (compile templateBodyCompiler)
 
-  match "pages/index.html" do
-    route (constRoute "index.html")
-    compile do
-      posts <- loadAll "posts/*" >>= recentFirst
-      let indexCtx =
-            listField "posts" postCtx (return posts) `mappend`
-            defaultContext
+    match "pages/index.html" do
+      route (constRoute "index.html")
+      compile do
+        posts <- loadAll "posts/*" >>= recentFirst
+        let indexCtx =
+              listField "posts" postCtx (return posts)
+                `mappend` defaultContext
 
-      getResourceBody
-        >>= applyAsTemplate indexCtx
-        >>= loadAndApplyTemplate "templates/default.html" indexCtx
-        >>= relativizeUrls
+        getResourceBody
+          >>= applyAsTemplate indexCtx
+          >>= loadAndApplyTemplate "templates/default.html" indexCtx
+          >>= relativizeUrls
 
-  match "posts/*" do
-    route (setExtension "html")
-    compile do
-      pandocCompilerWith defaultHakyllReaderOptions writerOpts
-        >>= loadAndApplyTemplate "templates/default.html" postCtx
-        >>= relativizeUrls
+    match "posts/*" do
+      route (setExtension "html")
+      compile do
+        pandocCompilerWith defaultHakyllReaderOptions writerOpts
+          >>= loadAndApplyTemplate "templates/default.html" postCtx
+          >>= relativizeUrls
 
-  match "styles/*.scss" do
-    route (setExtension "css")
-    compile (fmap compressCss <$> sassCompiler)
+    match "styles/*.scss" do
+      route (setExtension "css")
+      compile (fmap compressCss <$> sassCompiler)
 
-  match "images/favicon.ico" $ do
-    route (constRoute "favicon.ico")
-    compile copyFileCompiler
-
+    match "images/favicon.ico" $ do
+      route (constRoute "favicon.ico")
+      compile copyFileCompiler
 
 writerOpts :: WriterOptions
 writerOpts =
@@ -58,5 +59,5 @@ tocTemplate =
 
 postCtx :: Context String
 postCtx =
-    dateField "date" "%B %e, %Y" `mappend`
-    defaultContext
+  dateField "date" "%B %e, %Y"
+    `mappend` defaultContext
