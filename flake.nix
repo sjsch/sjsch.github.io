@@ -22,8 +22,8 @@
 
         cekMachine = import
           (fetchTarball {
-            url = https://github.com/sjsch/interactive-cek-machine/archive/e671383bbcc72b8fca8b245235f92d2edd6e0ae1.tar.gz;
-            sha256 = "1n8l81488phawdil1naidx0csl0q885zh56ml482ry314jmhzzhi";
+            url = https://github.com/sjsch/interactive-cek-machine/archive/dd80e3c5c4dfac7d6698663a540c92b68cb0298c.tar.gz;
+            sha256 = "01xdy29smpmv000gbhmswkqmj0cls9gc397mvbn4qfdnra42kf18";
           })
           { inherit pkgs; };
 
