@@ -3,17 +3,16 @@
 .cek-machine {
     .inputbar {
         display: flex;
+        height: 2em;
 
         input {
             flex-grow: 1;
-            height: 2.2em;
             font-family: "Ubuntu Mono", monospace;
             margin-right: 0.5em;
         }
 
         button {
             float: right;
-            height: 2.5em;
         }
     }
 

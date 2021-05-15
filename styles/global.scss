@@ -1,8 +1,9 @@
 @import "colours";
+@import "code";
 
 body {
     margin: 0;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: "Noto Sans", sans-serif;
 }
 
 p {
@@ -10,26 +11,43 @@ p {
 }
 
 input {
+    all: unset;
     border: 1px solid lightgray;
     border-radius: 3px;
+    padding: 0 0.5em 0 0.5em;
+}
+
+input:focus {
+    border: 1px solid $c-dark;
 }
 
 button {
+    all: unset;
     border: 1px solid lightgray;
     border-radius: 3px;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 10pt;
+    padding: 0 0.5em 0 0.5em;
+}
+
+button:disabled {
+    opacity: 0.5;
+}
+
+button:active {
+    border: 1px solid $c-dark;
 }
 
 main {
     display: grid;
-    margin: 0 auto 0 auto;
-    grid-template-columns: 20em 60em 20em;
+    grid-template-columns: 1fr 20em 50em 20em 1fr;
     grid-template-rows: auto 1fr;
     justify-content: center;
 }
 
-section.contact {
+.contact {
     margin: 1em;
-    grid-column: 1;
+    grid-column: 2;
 
     th {
         text-align: right;
@@ -37,7 +55,7 @@ section.contact {
 }
 
 article {
-    grid-column: 2;
+    grid-column: 3;
     grid-row: span 2;
     margin: 1em;
 }
@@ -51,6 +69,9 @@ a:hover {
 }
 
 header {
+    display: grid;
+    grid-template-columns: 1fr 20em 50em 20em 1fr;
+
     border-bottom: 10px ridge $c-light;
 
     a {
@@ -76,20 +97,9 @@ header {
 .header-container {
     display: flex;
     justify-content: flex-end;
+    grid-column: 3;
 
-    max-width: 60em - 2em;
-    margin: 0 auto 0 auto;
     padding: 1em;
-}
-
-@media only screen and (max-width: 40em) {
-    .header-container {
-        flex-direction: column;
-
-        nav a {
-            margin: 0.5em 1em 0 0;
-        }
-    }
 }
 
 .toc {
@@ -97,6 +107,7 @@ header {
     margin: 2.5em 1em 1em 1em;
     position: sticky;
     top: 1em;
+    grid-column: 2;
 
     ul {
         list-style: none;
@@ -141,27 +152,77 @@ header {
     font-style: italic;
 }
 
-@media only screen and (max-width: 100em) {
-    main {
-        grid-template-columns: 20em 60em auto;
+
+pre, code {
+    font-family: "Ubuntu Mono", monospace;
+}
+
+@media only screen and (max-width: 40em) {
+    .header-container {
+        flex-direction: column;
+
+        nav a {
+            margin: 0.5em 1em 0 0;
+        }
     }
 }
 
-
-@media only screen and (max-width: 80em) {
+@media only screen and (max-width: 90em) {
     main {
-        grid-template-columns: auto;
-        max-width: 60em;
+        grid-template-columns: 1fr 20em 50em 1fr;
+    }
+
+    header {
+        grid-template-columns: 1fr 20em 50em 1fr;
+    }
+}
+
+@media only screen and (max-width: 70em) {
+    main {
+        grid-template-columns: 1fr 50em 1fr;
+    }
+
+    header {
+        grid-template-columns: 1fr 50em 1fr;
+    }
+
+    .header-container {
+        grid-column: 2;
+    }
+
+    .toc {
+        grid-column: 2;
+        position: relative;
+        margin: 1em;
+    }
+
+    article {
+        grid-column: 2;
+    }
+}
+
+@media only screen and (max-width: 50em) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        grid-template-columns: 1fr;
+    }
+
+    .header-container {
+        grid-column: 1;
     }
 
     .toc {
         grid-column: 1;
-        position: relative;
+    }
+
+    .contact {
+        grid-column: 1;
     }
 
     article {
         grid-column: 1;
     }
 }
-
-@import "code";

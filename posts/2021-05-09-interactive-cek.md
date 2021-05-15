@@ -1,17 +1,11 @@
 ---
-title: How to think about continuations, visually
-desc: A visual explanation of continuations, and other control operators, including an interactive CEK machine.
+title: Continuations, visualized
+desc: A visual explanation of continuations with an interactive CEK machine.
 ---
 
-# How to think about continuations, visually
+# Continuations, visualized
 
-I'll do this post for real when I get the time.
 
-```c
-int main() { return 123; }
-```
-
-For now, enjoy the fun demo:
 
 <div class="cek-machine" data-prog="add 1 10" data-step="3"></div>
 
